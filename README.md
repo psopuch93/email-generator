@@ -1,2 +1,2 @@
 # email-generator
-Script for generating e-mails at www.wp.pl
+Script for generating e-mails at https://www.wp.pl/
