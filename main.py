@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time, random, string
+import time
+import functions
 
 PATH = r"C:\Users\sopuch\Desktop\chromedriver\chromedriver.exe"
 URL = 'https://nowyprofil.wp.pl/rejestracja/'
@@ -9,7 +10,7 @@ time.sleep(5)
 
 driver.get(URL)
 
-#functions
+# functions
 
 name_field = driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/'
                                           'div[3]/form/div[1]/div[1]/div/input')
@@ -53,14 +54,18 @@ optional_unclick_checkbox =
 '''
 
 # Filling fields
+name = functions.random_name()
+lastname = functions.random_lastname()
+login = functions.random_login()
+password = functions.random_password()
 
-name_field.send_keys('Paweł')
-lastname_field.send_keys('Szopen')
+name_field.send_keys(name)
+lastname_field.send_keys(lastname)
 day_of_birth_field.send_keys(15)
-login_field.send_keys('szopenek69')
-password_field.send_keys('Szopenek15@')
-repeat_password_field.send_keys('Szopenek15@')
-#password_remainder_answer_field.send_keys('Pizza')
+login_field.send_keys(login)
+password_field.send_keys(password)
+repeat_password_field.send_keys(password)
+# password_remainder_answer_field.send_keys('Pizza')
 
 
 
