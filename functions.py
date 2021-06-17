@@ -21,7 +21,7 @@ def random_lastname():
 
 
 def random_gender():
-    genders = ["male", "female", "other"]
+    genders = ["male", "female"]
     gender = random.choice(genders)
     return gender
 
@@ -42,6 +42,7 @@ def random_login():
     while i < 10:
         login += random.choice(string.ascii_letters)
         i += 1
+    login = login.lower()
     return login
 
 
@@ -69,3 +70,23 @@ def login_password_validator(login_list, password_list):
         return False
     else:
         return True
+
+
+def random_birth_day():
+    birth_day = random.randint(1, 29)
+    if birth_day < 10:
+        return str(birth_day).zfill(2)
+    else:
+        return birth_day
+
+
+def random_birth_month():
+    birth_month = random.randint(1, 12)
+    if birth_month < 10:
+        return str(birth_month).zfill(2)
+    return birth_month
+
+
+def random_birth_year():
+    birth_year = random.randint(1921, 2021)
+    return birth_year

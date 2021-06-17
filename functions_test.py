@@ -5,7 +5,7 @@ import string
 
 class FunctionsTest(unittest.TestCase):
 
-    def test_IsName(self):
+    def test_NameLenght(self):
         result = len(functions.random_name())
         self.assertGreater(result, 0)
 
@@ -17,7 +17,7 @@ class FunctionsTest(unittest.TestCase):
         result = len(functions.random_lastname())
         self.assertGreater(result, 0)
 
-    def test_NoNone(self):
+    def test_NotNone(self):
         result = functions.random_name()
         self.assertIsNotNone(result)
 
@@ -41,6 +41,27 @@ class FunctionsTest(unittest.TestCase):
         variable_result = len(functions.random_login())
         list_result = len(functions.login_list(login))
         self.assertEqual(variable_result, list_result)
+
+    def test_GenderChoice(self):
+        result = functions.random_gender()
+        genders = ["male", "female"]
+        self.assertIn(result, genders)
+
+
+    '''def test_BirthDayValidate(self):
+        result = functions.random_birth_day()
+        self.assertGreaterEqual(result, 1)
+        self.assertLessEqual(result, 29)'''
+
+    '''def test_BirthMonthValidate(self):
+        result = functions.random_birth_month()
+        self.assertGreaterEqual(result, 1)
+        self.assertLessEqual(result, 12)'''
+
+    def test_BirthYearValidate(self):
+        result = functions.random_birth_year()
+        self.assertGreaterEqual(result, 1921)
+        self.assertLessEqual(result, 2021)
 
 
 if __name__ == '__main__':
